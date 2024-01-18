@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 19:28:53 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 17:17:21 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:18:52 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	write_error(char *line, t_list **stack_a, t_list **stack_b)
 	free(line);
 	ft_lstclear(stack_a);
 	ft_lstclear(stack_b);
+	get_next_line(0, 1);
 	ft_putstr_fd("Error\n", 2);
 	exit(EXIT_FAILURE);
 }
@@ -55,12 +56,12 @@ void	ft_checker(t_list **stack_a)
 	t_list	*stack_b;
 
 	stack_b = NULL;
-	line = get_next_line(0);
+	line = get_next_line(0, 0);
 	while (line)
 	{
 		compare_instructions(line, stack_a, &stack_b);
 		free(line);
-		line = get_next_line(0);
+		line = get_next_line(0, 0);
 	}
 	free(line);
 	if (ft_check_order(stack_a) && !stack_b)

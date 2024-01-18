@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:08:01 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 16:04:34 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:19:57 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ char	*ft_set_line(char *next_line, char *line)
 	return (line);
 }
 
-char	*get_next_line(int fd)
+char	*get_next_line(int fd, int error)
 {
 	char		*buffer;
 	char		*line;
@@ -91,6 +91,8 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
+	if (error)
+		return (free(next_line), NULL);
 	line = NULL;
 	buffer = malloc(BUFFER_SIZE + 1);
 	bytes_read = read(fd, buffer, BUFFER_SIZE);

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:33:02 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 15:05:41 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/18 15:18:24 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ int		ft_deal_pformat(uintptr_t ptr);
 int		ft_deal_iformat(int nb);
 int		ft_deal_uformat(unsigned int nb);
 int		ft_deal_xformat(unsigned int nb, char format);
-char	*get_next_line(int fd);
+char	*get_next_line(int fd, int error);
 char	*ft_join_to_nl(char *s1, char *s2);
 char	*ft_strjoin_gnl(char *s1, char *s2);
 char	*ft_read(int fd, char *buffer, char *next_line, ssize_t bytes_read);
