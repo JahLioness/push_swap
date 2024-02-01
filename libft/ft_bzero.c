@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 13:40:32 by ede-cola          #+#    #+#             */
-/*   Updated: 2023/11/06 12:12:38 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 15:16:07 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@ void	ft_bzero(void *s, size_t n)
 	char	*str;
 
 	i = 0;
+	if (!s || !n)
+		return ;
 	str = (char *)s;
 	while (i < n)
 	{

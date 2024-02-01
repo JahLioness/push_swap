@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/25 18:23:42 by ede-cola          #+#    #+#             */
-/*   Updated: 2023/12/15 15:42:07 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:01:47 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 int	ft_deal_cformat(char c)
 {
+	if (!c)
+		return (0);
 	ft_putchar_fd(c, 1);
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/28 12:24:01 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/10 12:59:15 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:52:25 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,18 @@ long	ft_atol(const char *nptr)
 int	ft_strcmp(char *s1, const char *s2)
 {
 	size_t	i;
+	size_t	j;
 
 	i = 0;
-	while (s1[i] || s2[i])
+	j = 0;
+	while (s1[i] || s2[j])
 	{
-		if (s1[i] != s2[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		if (j == 0 && s2[j] == '+')
+			j++;
+		if (s1[i] != s2[j])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[j]);
 		i++;
+		j++;
 	}
 	return (0);
 }

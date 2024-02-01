@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 13:14:29 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 13:58:50 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/23 15:21:14 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ int	check_group(t_list **lst, int group)
 
 void	push_groups_atob(t_list **a, t_list **b)
 {
-	int (i) = 1;
+	int	i;
+
+	i = 1;
 	while (ft_lstsize(*a) > 3 && i <= 5)
 	{
 		while ((check_group(a, i) && check_group(a, i + 1))

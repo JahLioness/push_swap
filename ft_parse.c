@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/11 12:35:00 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 16:09:52 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:27:06 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 
 void	ft_validation_args(int argc, char **argv)
 {
+	if (!ft_check_args(argv))
+	{
+		ft_putstr_fd("Error\n", 2);
+		exit(EXIT_FAILURE);
+	}
 	if (argc == 2)
 	{
-		if (!check_max_min(argv))
+		if (!check_max_min(argv) || check_double(argv))
 		{
 			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
@@ -24,16 +29,11 @@ void	ft_validation_args(int argc, char **argv)
 	}
 	else
 	{
-		if (!check_max_min_args(argv))
+		if (!check_max_min_args(argv) || check_double_args(argv))
 		{
 			ft_putstr_fd("Error\n", 2);
 			exit(EXIT_FAILURE);
 		}
-	}
-	if (!ft_check_args(argv) || check_double(argv, argc))
-	{
-		ft_putstr_fd("Error\n", 2);
-		exit(EXIT_FAILURE);
 	}
 }
 
@@ -58,9 +58,9 @@ t_list	*ft_parse_arg(char **argv)
 		i++;
 	}
 	ft_free_split(len, split);
-	set_index(&stack_a);
 	if (ft_lstsize(stack_a) != len)
-		ft_lstclear(&stack_a);
+		return (ft_lstclear(&stack_a), stack_a);
+	set_index(&stack_a);
 	return (stack_a);
 }
 
@@ -77,7 +77,7 @@ t_list	*ft_parse_many(char **argv, int argc)
 		i++;
 	}
 	if (ft_lstsize(stack_a) != argc - 1)
-		ft_lstclear(&stack_a);
+		return (ft_lstclear(&stack_a), stack_a);
 	set_index(&stack_a);
 	return (stack_a);
 }

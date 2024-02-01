@@ -1,41 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_check_args2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/06 10:06:15 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/29 12:28:25 by ede-cola         ###   ########.fr       */
+/*   Created: 2024/01/26 12:12:00 by ede-cola          #+#    #+#             */
+/*   Updated: 2024/01/26 12:15:43 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+int	check_double(char **argv)
 {
 	int		i;
 	int		j;
-	char	*ret;
+	int		count;
+	char	**str;
 
+	str = ft_split(argv[1], ' ');
+	count = ft_countword(argv[1], ' ');
 	i = 0;
-	j = 0;
-	if (!s1 || !s2)
-		return (NULL);
-	ret = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
-	if (!ret)
-		return (NULL);
-	while (s1[i])
+	while (str[i])
 	{
-		ret[i] = s1[i];
+		j = i + 1;
+		while (str[j])
+		{
+			if (ft_atol(str[j++]) == ft_atol(str[i]))
+			{
+				ft_free_split(count, str);
+				return (1);
+			}
+		}
 		i++;
 	}
-	while (s2[j])
-	{
-		ret[i] = s2[j];
-		i++;
-		j++;
-	}
-	ret[i] = '\0';
-	return (ret);
+	ft_free_split(i, str);
+	return (0);
 }

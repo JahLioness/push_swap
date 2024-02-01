@@ -6,7 +6,7 @@ SRC = main.c set_groups.c push_groups.c set_target.c sorting_utils.c ft_sort.c f
 
 B_SRC = checker_main.c 
 
-C_SRC = ft_check_args.c ft_parse.c ft_push.c ft_reverse_rotate.c ft_rotate.c ft_swap.c ft_utils.c lst_utils.c lst_utils2.c set_index.c 
+C_SRC = ft_check_args.c ft_check_args2.c ft_parse.c ft_push.c ft_reverse_rotate.c ft_rotate.c ft_swap.c ft_utils.c lst_utils.c lst_utils2.c set_index.c 
 
 OBJ = $(SRC:.c=.o)
 
@@ -15,8 +15,6 @@ B_OBJ = $(B_SRC:.c=.o)
 C_OBJ = $(C_SRC:.c=.o)
 
 HEADER_F = push_swap.h
-
-B_HEADER_F = checker.h
 
 LIBFT = ./libft/libft.a
 
@@ -35,7 +33,7 @@ $(NAME): $(OBJ) $(C_OBJ) $(HEADER_F) $(LIBFT)
 $(LIBFT):
 	make -C libft
 
-$(B_NAME): $(B_OBJ) $(B_HEADER_F) $(LIBFT)
+$(B_NAME): $(B_OBJ) $(HEADER_F) $(LIBFT)
 	$(CC) $(CFLAGS) -c $(B_SRC) $(C_SRC)
 	$(CC) $(CFLAGS) -o $(B_NAME) $(B_OBJ) $(C_OBJ) $(LIBFT)
 

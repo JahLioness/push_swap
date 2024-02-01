@@ -6,13 +6,13 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 11:30:54 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/10 12:20:26 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:05:42 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	ft_countword(char const *s, char c)
+int	ft_countword(char const *s, char c)
 {
 	int	count;
 
@@ -45,9 +45,10 @@ void	ft_free_split(size_t i, char **split)
 {
 	while (i > 0)
 	{
-		i--;
 		free(split[i]);
+		i--;
 	}
+	free(split[i]);
 	free(split);
 }
 

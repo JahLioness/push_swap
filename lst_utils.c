@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/26 20:17:22 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/08 14:31:42 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:34:38 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,9 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 
 void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	if (lst && new)
+	if (!lst)
+		*lst = new;
+	else if (lst && new)
 	{
 		if (*lst)
 			(*lst)->previous = new;
@@ -60,12 +62,15 @@ void	ft_lst_set_position(t_list *lst)
 {
 	int	i;
 
-	i = 1;
-	while (lst)
+	if (lst)
 	{
-		lst->position = i;
-		i++;
-		lst = lst->next;
+		i = 1;
+		while (lst)
+		{
+			lst->position = i;
+			i++;
+			lst = lst->next;
+		}
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/01 14:49:37 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 14:57:55 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:05:03 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@ char	*ft_check_str(char *str)
 	if (!str)
 	{
 		str = malloc(1);
+		if (!str)
+			return (NULL);
 		str[0] = '\0';
 	}
 	return (str);

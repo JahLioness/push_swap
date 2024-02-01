@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/16 17:43:21 by ede-cola          #+#    #+#             */
-/*   Updated: 2023/12/15 15:41:39 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:03:15 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,16 +64,9 @@ void	ft_putnbr_unsigned(unsigned long long n)
 	char	c;
 
 	if (n > 9)
-	{
 		ft_putnbr_unsigned(n / 10);
-		c = '0' + (n % 10);
-		write(1, &c, 1);
-	}
-	else if (n <= 9)
-	{
-		c = '0' + n;
-		write(1, &c, 1);
-	}
+	c = '0' + (n % 10);
+	write(1, &c, 1);
 }
 
 void	ft_putnbr16(unsigned long long n, char format)

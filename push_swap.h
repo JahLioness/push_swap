@@ -6,7 +6,7 @@
 /*   By: ede-cola <ede-cola@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/18 18:33:32 by ede-cola          #+#    #+#             */
-/*   Updated: 2024/01/15 13:53:50 by ede-cola         ###   ########.fr       */
+/*   Updated: 2024/01/26 12:15:38 by ede-cola         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ void	ft_rrr(t_list **a, t_list **b, int write);
 int		ft_check_args(char **argv);
 int		check_max_min(char **argv);
 int		check_max_min_args(char **argv);
-int		check_double(char **argv, int argc);
+int		check_double(char **argv);
+int		check_double_args(char **argv);
 void	ft_validation_args(int argc, char **argv);
 int		ft_check_order(t_list **a);
 t_list	*ft_parse_arg(char **argv);
